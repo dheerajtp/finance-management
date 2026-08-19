@@ -1,0 +1,43 @@
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+  margin-top: var(--space-3);
+}
+
+.row {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+}
+
+.bars {
+  display: flex;
+  align-items: flex-end;
+  gap: var(--space-1);
+  height: 48px;
+}
+
+.barWrap {
+  flex: 1;
+  height: 100%;
+  display: flex;
+  align-items: flex-end;
+}
+
+.bar {
+  width: 100%;
+  min-height: 2px;
+  border-radius: var(--radius-sm) var(--radius-sm) 0 0;
+  background: var(--border-strong);
+}
+
+.currentBar {
+  background: var(--color-accent);
+}

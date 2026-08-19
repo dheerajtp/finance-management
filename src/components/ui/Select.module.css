@@ -1,0 +1,73 @@
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.label {
+  font-size: 0.875rem;
+  color: var(--color-text-secondary);
+}
+
+.required {
+  color: var(--color-danger);
+  margin-left: 0.125rem;
+}
+
+.selectWrap {
+  position: relative;
+  background: var(--color-surface-elevated);
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-md);
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.selectWrap:focus-within {
+  border-color: var(--color-accent);
+  box-shadow: var(--focus-ring);
+}
+
+.selectWrap.error {
+  border-color: var(--color-danger);
+}
+
+.select {
+  width: 100%;
+  appearance: none;
+  /* Same color as .selectWrap's background, not transparent — the closed
+     control still looks identical, but this gives the browser a real dark
+     color to render the native options popup with. "transparent" leaves
+     the popup with no color to theme itself from, so most browsers fall
+     back to a plain white list regardless of color-scheme. */
+  background: var(--color-surface-elevated);
+  border: none;
+  outline: none;
+  padding: 0.8125rem 2rem 0.8125rem 0.875rem;
+  color: var(--color-text-primary);
+  font-size: 0.9375rem;
+  cursor: pointer;
+}
+
+.select:disabled {
+  cursor: not-allowed;
+  color: var(--color-text-muted);
+}
+
+.select option {
+  background: var(--color-surface-elevated);
+  color: var(--color-text-primary);
+}
+
+.chevron {
+  position: absolute;
+  right: 0.75rem;
+  top: 50%;
+  transform: translateY(-50%);
+  pointer-events: none;
+  color: var(--color-text-muted);
+}
+
+.errorText {
+  font-size: 0.8125rem;
+  color: var(--color-danger);
+}

@@ -1,0 +1,21 @@
+.notice {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-3) var(--space-4);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  background: var(--color-surface);
+  margin-bottom: var(--space-5);
+  flex-wrap: wrap;
+}
+
+.icon {
+  color: var(--color-warning);
+  flex-shrink: 0;
+}
+
+.text {
+  flex: 1;
+  min-width: 200px;
+}

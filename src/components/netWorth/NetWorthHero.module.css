@@ -1,0 +1,45 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.currencyLabel {
+  margin-bottom: var(--space-1);
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+}
+
+.title {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.titleIcon {
+  color: var(--color-text-muted);
+}
+
+.value {
+  margin: var(--space-1) 0;
+}
+
+.split {
+  display: flex;
+  gap: var(--space-6);
+  margin-top: var(--space-4);
+  padding-top: var(--space-4);
+  border-top: 1px solid var(--border-subtle);
+  flex-wrap: wrap;
+}
+
+@media (max-width: 480px) {
+  .split {
+    gap: var(--space-4);
+  }
+}

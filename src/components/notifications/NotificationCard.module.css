@@ -1,0 +1,81 @@
+.card {
+  display: flex;
+  align-items: stretch;
+  gap: var(--space-2);
+  border-radius: var(--radius-lg);
+  transition: background-color var(--transition-fast);
+}
+
+.unread {
+  background: var(--color-surface-interactive);
+}
+
+.main {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-3);
+  padding: var(--space-3);
+  background: none;
+  border: none;
+  text-align: left;
+  cursor: pointer;
+  font: inherit;
+  color: inherit;
+}
+
+.iconWrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  flex-shrink: 0;
+  border-radius: var(--radius-md);
+  background: var(--color-surface-interactive);
+  color: var(--color-text-secondary);
+}
+
+.iconWrap.info {
+  background: var(--color-accent-muted);
+  color: var(--color-info);
+}
+
+.iconWrap.success {
+  background: var(--color-success-muted);
+  color: var(--color-success);
+}
+
+.iconWrap.warning {
+  background: var(--color-warning-muted);
+  color: var(--color-warning);
+}
+
+.body {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+
+.headline {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.dot {
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: var(--radius-full);
+  background: var(--color-accent);
+  flex-shrink: 0;
+}
+
+.deleteButton {
+  align-self: center;
+  padding: 0.5rem;
+  flex-shrink: 0;
+}

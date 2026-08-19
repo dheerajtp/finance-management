@@ -1,0 +1,35 @@
+.periodSelect {
+  min-width: 160px;
+}
+
+.notice {
+  margin: var(--space-3) 0;
+}
+
+.section {
+  margin-top: var(--space-6);
+}
+
+.heroSection {
+  margin-top: var(--space-4);
+}
+
+.secondaryGrid {
+  display: grid;
+  grid-template-columns: 13fr 7fr;
+  gap: var(--space-5);
+  margin-top: var(--space-6);
+  align-items: start;
+}
+
+@media (max-width: 860px) {
+  .secondaryGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.skeletonGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: var(--space-4);
+}

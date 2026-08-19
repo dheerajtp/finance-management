@@ -1,0 +1,16 @@
+.main {
+  flex: 1;
+  overflow: auto;
+  padding: var(--space-5);
+}
+
+.inner {
+  max-width: var(--container-max);
+  margin: 0 auto;
+}
+
+@media (max-width: 640px) {
+  .main {
+    padding: var(--space-4);
+  }
+}

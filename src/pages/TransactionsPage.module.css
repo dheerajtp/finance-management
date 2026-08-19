@@ -1,0 +1,23 @@
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: var(--space-4);
+}
+
+.desktopTable {
+  display: none;
+}
+
+.mobileCards {
+  display: grid;
+}
+
+@media (min-width: 900px) {
+  .desktopTable {
+    display: block;
+  }
+
+  .mobileCards {
+    display: none;
+  }
+}

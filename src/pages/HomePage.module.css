@@ -1,0 +1,72 @@
+.periodSelect {
+  min-width: 160px;
+}
+
+.notice {
+  margin: var(--space-3) 0;
+}
+
+.section {
+  margin-top: var(--space-7);
+}
+
+.utilityRow {
+  margin-top: var(--space-5);
+}
+
+/* Asymmetric workspace rows — never two equal-weight boxes. */
+.row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-6);
+}
+
+.rowWide {
+  display: grid;
+  grid-template-columns: 1.7fr 1fr;
+  gap: var(--space-6);
+  align-items: start;
+}
+
+.rowNarrow {
+  display: grid;
+  grid-template-columns: 1fr 1.3fr;
+  gap: var(--space-6);
+  align-items: start;
+}
+
+.spendingStack {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+}
+
+.banner {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-3) var(--space-4);
+  margin-top: var(--space-5);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  background: var(--color-surface);
+  flex-wrap: wrap;
+}
+
+.bannerIcon {
+  color: var(--color-warning);
+  flex-shrink: 0;
+}
+
+.bannerText {
+  flex: 1;
+  min-width: 200px;
+}
+
+@media (max-width: 1024px) {
+  .row,
+  .rowWide,
+  .rowNarrow {
+    grid-template-columns: 1fr;
+  }
+}

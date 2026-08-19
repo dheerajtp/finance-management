@@ -1,0 +1,24 @@
+.stack {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.stack > div > p {
+  margin-top: var(--space-2);
+}
+
+.toggle {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-size: 0.875rem;
+  color: var(--color-text-secondary);
+  cursor: pointer;
+}
+
+.toggle input {
+  accent-color: var(--color-accent);
+  width: 1rem;
+  height: 1rem;
+}

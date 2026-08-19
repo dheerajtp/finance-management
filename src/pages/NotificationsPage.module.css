@@ -1,0 +1,14 @@
+.filters {
+  display: flex;
+  gap: var(--space-4);
+  margin: var(--space-5) 0;
+  padding-bottom: var(--space-4);
+  border-bottom: 1px solid var(--border-subtle);
+  max-width: 240px;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}

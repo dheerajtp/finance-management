@@ -1,0 +1,40 @@
+.formula {
+  display: flex;
+  align-items: center;
+  gap: var(--space-5);
+  margin-top: var(--space-4);
+  flex-wrap: wrap;
+}
+
+.term {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+
+.termValue {
+  color: var(--color-text-primary);
+}
+
+.operator {
+  font-size: 1.25rem;
+  color: var(--color-text-muted);
+  flex-shrink: 0;
+}
+
+.result {
+  color: var(--color-accent-hover);
+}
+
+.notice {
+  margin-top: var(--space-4);
+  max-width: 56ch;
+}
+
+@media (max-width: 640px) {
+  .formula {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-3);
+  }
+}

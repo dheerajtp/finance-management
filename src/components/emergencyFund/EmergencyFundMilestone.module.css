@@ -1,0 +1,26 @@
+.title {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.titleIcon {
+  color: var(--color-text-muted);
+}
+
+.value {
+  margin: var(--space-2) 0 var(--space-1);
+}
+
+.amounts {
+  margin-bottom: var(--space-3);
+}
+
+.reached {
+  margin: var(--space-2) 0 0;
+  color: var(--color-success);
+}
+
+.remaining {
+  margin-top: var(--space-2);
+}

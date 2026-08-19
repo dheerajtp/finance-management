@@ -1,0 +1,20 @@
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: var(--space-5);
+  margin-top: var(--space-5);
+}
+
+.section {
+  margin-top: var(--space-6);
+}
+
+.notice {
+  margin: var(--space-3) 0;
+}
+
+.skeletonGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: var(--space-4);
+}

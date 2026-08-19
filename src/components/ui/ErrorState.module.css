@@ -1,0 +1,27 @@
+.wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: var(--space-3);
+  padding: var(--space-7) var(--space-5);
+}
+
+.icon {
+  font-size: var(--icon-xl);
+  color: var(--color-danger);
+}
+
+.title {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--color-text-primary);
+}
+
+.message {
+  margin: 0;
+  max-width: 32ch;
+  font-size: 0.875rem;
+  color: var(--color-text-secondary);
+}

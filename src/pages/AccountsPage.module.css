@@ -1,0 +1,41 @@
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: var(--space-4);
+}
+
+.section {
+  margin-top: var(--space-6);
+}
+
+.sectionHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4);
+  margin-bottom: var(--space-4);
+  flex-wrap: wrap;
+}
+
+.currencyGroup + .currencyGroup {
+  margin-top: var(--space-5);
+}
+
+.currencyLabel {
+  margin-bottom: var(--space-3);
+}
+
+.toggle {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-size: 0.875rem;
+  color: var(--color-text-secondary);
+  cursor: pointer;
+}
+
+.toggle input {
+  accent-color: var(--color-accent);
+  width: 1rem;
+  height: 1rem;
+}

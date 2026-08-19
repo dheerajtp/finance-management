@@ -1,0 +1,68 @@
+.filters {
+  display: flex;
+  align-items: flex-end;
+  gap: var(--space-4);
+  margin: var(--space-5) 0;
+  padding-bottom: var(--space-4);
+  border-bottom: 1px solid var(--border-subtle);
+  flex-wrap: wrap;
+}
+
+.toggle {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding-bottom: 0.625rem;
+  font-size: 0.875rem;
+  color: var(--color-text-secondary);
+  cursor: pointer;
+}
+
+.toggle input {
+  accent-color: var(--color-accent);
+  width: 1rem;
+  height: 1rem;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: var(--space-4);
+}
+
+.recentContributions {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  margin-top: var(--space-5);
+}
+
+.recentList {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.recentRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+  padding: var(--space-3);
+  background: var(--color-surface-interactive);
+  border: 1px solid transparent;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  text-align: left;
+  font: inherit;
+  color: inherit;
+  transition: border-color var(--transition-fast);
+}
+
+.recentRow:hover {
+  border-color: var(--border-strong);
+}
+
+.recentRow p {
+  margin: 0;
+}

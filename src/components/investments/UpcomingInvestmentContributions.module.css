@@ -1,0 +1,38 @@
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  margin-top: var(--space-3);
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.rowIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  flex-shrink: 0;
+  border-radius: var(--radius-md);
+  background: var(--color-surface-interactive);
+  color: var(--color-text-secondary);
+}
+
+.identity {
+  flex: 1;
+  min-width: 0;
+}
+
+.identity p {
+  margin: 0;
+}
+
+.row > p {
+  margin: 0;
+  font-weight: 600;
+}

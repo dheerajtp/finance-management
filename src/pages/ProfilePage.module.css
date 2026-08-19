@@ -1,0 +1,13 @@
+.wrap {
+  max-width: 560px;
+}
+
+.card {
+  margin-top: var(--space-5);
+}
+
+.skeletonStack {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}

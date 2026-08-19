@@ -1,0 +1,31 @@
+.filters {
+  display: flex;
+  align-items: flex-end;
+  gap: var(--space-4);
+  margin: var(--space-5) 0;
+  padding-bottom: var(--space-4);
+  border-bottom: 1px solid var(--border-subtle);
+  flex-wrap: wrap;
+}
+
+.toggle {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding-bottom: 0.625rem;
+  font-size: 0.875rem;
+  color: var(--color-text-secondary);
+  cursor: pointer;
+}
+
+.toggle input {
+  accent-color: var(--color-accent);
+  width: 1rem;
+  height: 1rem;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: var(--space-4);
+}

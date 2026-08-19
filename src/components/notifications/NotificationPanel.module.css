@@ -1,0 +1,77 @@
+.panel {
+  position: absolute;
+  top: calc(100% + var(--space-2));
+  right: 0;
+  width: 22rem;
+  max-width: calc(100vw - var(--space-6));
+  max-height: min(28rem, 70vh);
+  display: flex;
+  flex-direction: column;
+  background: var(--color-surface-elevated);
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
+  z-index: 40;
+  overflow: hidden;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-2);
+  padding: var(--space-3) var(--space-4);
+  border-bottom: 1px solid var(--border-subtle);
+  flex-shrink: 0;
+}
+
+.markAllButton {
+  padding: 0.375rem 0.625rem;
+  font-size: 0.75rem;
+}
+
+.body {
+  flex: 1;
+  overflow-y: auto;
+  padding: var(--space-2);
+}
+
+.skeletonStack {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  padding: var(--space-2);
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+
+.viewAll {
+  display: block;
+  text-align: center;
+  padding: var(--space-3);
+  font-size: 0.8125rem;
+  font-weight: 500;
+  color: var(--color-text-secondary);
+  text-decoration: none;
+  border-top: 1px solid var(--border-subtle);
+  flex-shrink: 0;
+}
+
+.viewAll:hover {
+  color: var(--color-accent);
+}
+
+@media (max-width: 480px) {
+  .panel {
+    position: fixed;
+    top: var(--header-height, 4rem);
+    left: var(--space-3);
+    right: var(--space-3);
+    width: auto;
+    max-width: none;
+  }
+}

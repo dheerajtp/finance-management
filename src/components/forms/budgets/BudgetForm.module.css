@@ -1,0 +1,24 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.suggestion {
+  margin: calc(var(--space-2) * -1) 0 0;
+}
+
+.suggestionLink {
+  background: none;
+  border: none;
+  padding: 0;
+  color: var(--color-accent);
+  font-size: inherit;
+  font-family: inherit;
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.submit {
+  margin-top: var(--space-2);
+}

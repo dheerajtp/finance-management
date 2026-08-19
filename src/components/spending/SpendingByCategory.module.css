@@ -1,0 +1,32 @@
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  margin-top: var(--space-3);
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.rank {
+  flex-shrink: 0;
+  width: 1.5rem;
+  text-align: center;
+  color: var(--color-text-muted);
+  font-size: 0.8125rem;
+  font-weight: 600;
+}
+
+.progressWrap {
+  flex: 1;
+  min-width: 0;
+}
+
+.meta {
+  display: flex;
+  justify-content: space-between;
+  margin-top: var(--space-1);
+}

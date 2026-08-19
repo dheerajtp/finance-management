@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Financial Freedom OS</title>
+    <script>
+      // Applies the stored theme before first paint so there's no flash of
+      // the wrong theme — mirrors useThemeSync's own resolution logic
+      // (store/theme.store.js's 'ffos:theme' key, jotai's default JSON
+      // storage), but runs synchronously before React/Jotai ever mount.
+      (function () {
+        try {
+          var stored = window.localStorage.getItem('ffos:theme')
+          var preference = stored ? JSON.parse(stored) : 'dark'
+          var resolved =
+            preference === 'system'
+              ? (window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark')
+              : preference
+          document.documentElement.dataset.theme = resolved
+        } catch (error) {
+          document.documentElement.dataset.theme = 'dark'
+        }
+      })()
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <div id="modal-root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>

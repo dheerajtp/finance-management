@@ -1,0 +1,27 @@
+.stack {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+}
+
+.section {
+  padding-top: var(--space-4);
+  border-top: 1px solid var(--border-subtle);
+}
+
+.sectionTitle {
+  margin-bottom: var(--space-1);
+}
+
+.link {
+  display: inline-block;
+  margin-top: var(--space-3);
+  font-size: 0.8125rem;
+  font-weight: 500;
+  color: var(--color-accent);
+  text-decoration: none;
+}
+
+.link:hover {
+  text-decoration: underline;
+}

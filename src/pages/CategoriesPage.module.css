@@ -1,0 +1,26 @@
+.filters {
+  display: flex;
+  gap: var(--space-4);
+  max-width: 480px;
+  margin-bottom: var(--space-5);
+  flex-wrap: wrap;
+}
+
+.filters > * {
+  flex: 1;
+  min-width: 160px;
+}
+
+.section {
+  margin-bottom: var(--space-5);
+}
+
+.sectionTitle {
+  margin-bottom: var(--space-3);
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}

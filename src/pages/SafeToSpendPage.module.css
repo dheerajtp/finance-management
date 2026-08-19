@@ -1,0 +1,7 @@
+.section {
+  margin: var(--space-5) 0;
+}
+
+.notice {
+  margin: 0 0 var(--space-4);
+}
