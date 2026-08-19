@@ -1,8 +1,19 @@
+.page {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.page > header {
+  margin-bottom: 0 !important;
+  padding-bottom: 14px !important;
+}
+
 .filters {
   display: flex;
   align-items: flex-end;
   gap: var(--space-4);
-  margin: var(--space-5) 0;
+  margin: 0;
   padding-bottom: var(--space-4);
   border-bottom: 1px solid var(--border-subtle);
   flex-wrap: wrap;
@@ -27,7 +38,7 @@
 .grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-  gap: var(--space-4);
+  gap: 16px;
 }
 
 .emptyActions {

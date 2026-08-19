@@ -13,8 +13,10 @@ const occurrenceLabel = (plan) => {
 // Real upcoming SIP occurrences only — nothing fabricated, and never more
 // than one occurrence per plan (see calculateExpectedContributionDate).
 const UpcomingInvestmentContributions = ({ plans }) => (
-  <Card>
-    <p className="text-section-title">Upcoming Contributions</p>
+  <Card className={styles.card}>
+    <div className={styles.header}>
+      <p className="text-section-title">Upcoming Contributions</p>
+    </div>
 
     {plans.length === 0 ? (
       <EmptyState icon="calendarCheck" title="Nothing scheduled" description="Active SIPs due soon will show up here." />

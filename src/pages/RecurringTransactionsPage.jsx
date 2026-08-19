@@ -67,7 +67,7 @@ const RecurringTransactionsPage = () => {
   const { pendingRecord, requestRecord, cancelRecord, confirmRecord, recording } = useActionRecurringTransactionRecord()
 
   return (
-    <div>
+    <div className={styles.page}>
       <PageHeader
         title="Recurring Transactions"
         description="Expected income, expenses, and transfers — nothing posts until you confirm it."
