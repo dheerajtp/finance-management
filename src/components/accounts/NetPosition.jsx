@@ -6,7 +6,6 @@ import Icon from '../ui/Icon'
 import Skeleton from '../ui/Skeleton'
 import { summarizeAccounts } from '../../utils/finance/accountSummary'
 import { formatCurrency } from '../../utils/finance/currency'
-import Sparkline from '../ui/Sparkline'
 import styles from './NetPosition.module.css'
 
 // The hero "how am I doing overall" panel — assets minus liabilities, i.e.
@@ -61,15 +60,12 @@ const NetPosition = ({ accounts, loading, compact = false, primaryCurrency, acti
     <div className={styles.stack}>
       {visibleGroups.map((group) => (
         <Card key={group.currency} variant="hero" className={styles.card}>
-          <div className={styles.headerRow}>
-            <div className={styles.headerText}>
-              <p className="text-label">Net Worth{groups.length > 1 && !compact ? ` — ${group.currency}` : ''}</p>
-              <p className={`text-hero-metric ${styles.value}`}>{formatCurrency(group.netPosition, group.currency)}</p>
-              <span className={`text-delta ${group.netPosition >= 0 ? 'text-delta--up' : 'text-delta--down'}`}>
-                {group.netPosition >= 0 ? 'Positive' : 'Negative'}
-              </span>
-            </div>
-            {compact && <Sparkline data={[]} width={120} height={48} />}
+          <div className={styles.headerText}>
+            <p className="text-label">Net Worth{groups.length > 1 && !compact ? ` — ${group.currency}` : ''}</p>
+            <p className={`text-hero-metric ${styles.value}`}>{formatCurrency(group.netPosition, group.currency)}</p>
+            <span className={`text-delta ${group.netPosition >= 0 ? 'text-delta--up' : 'text-delta--down'}`}>
+              {group.netPosition >= 0 ? 'Positive' : 'Negative'}
+            </span>
           </div>
 
           <div className={styles.split}>
