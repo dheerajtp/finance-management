@@ -25,6 +25,7 @@ const EmergencyFundForm = ({ register, onSubmit, errors, saving, accountOptions,
           id="monthly_contribution"
           label={labels.monthlyContribution}
           type="number"
+          step="0.01"
           helperText="Optional — how much you plan to set aside each month"
           error={errors.monthly_contribution?.message}
           {...register('monthly_contribution')}

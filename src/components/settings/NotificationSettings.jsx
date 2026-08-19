@@ -2,6 +2,7 @@ import Switch from '../ui/Switch'
 import SettingsRow from './SettingsRow'
 
 const DOMAINS = [
+  { key: 'daily_expenses', label: 'Daily expenses', description: 'Evening reminder if you haven’t logged any expense today.', icon: 'wallet' },
   { key: 'recurring_transactions', label: 'Recurring transactions', description: 'Due and overdue reminders.', icon: 'calendarCheck' },
   { key: 'subscriptions', label: 'Subscriptions', description: 'Upcoming renewal reminders.', icon: 'refresh' },
   { key: 'budgets', label: 'Budgets', description: 'Approaching-limit and over-budget alerts.', icon: 'target' },

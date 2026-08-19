@@ -24,6 +24,7 @@ const renderField = (field, register, errors) =>
       id={field.name}
       label={field.label}
       type={field.type}
+      step={field.step}
       helperText={field.helperText}
       error={errors[field.name]?.message}
       {...register(field.name)}

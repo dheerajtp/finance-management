@@ -26,7 +26,7 @@ const InvestmentContributionForm = ({
       />
     )}
 
-    <Input id="amount" label={labels.amount} type="number" error={errors.amount?.message} {...register('amount')} />
+    <Input id="amount" label={labels.amount} type="number" step="0.01" error={errors.amount?.message} {...register('amount')} />
 
     <Input
       id="contribution_date"

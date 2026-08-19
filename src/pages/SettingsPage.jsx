@@ -8,6 +8,7 @@ import SettingsRow from '../components/settings/SettingsRow'
 import AppearanceSettings from '../components/settings/AppearanceSettings'
 import PreferencesSettings from '../components/settings/PreferencesSettings'
 import NotificationSettings from '../components/settings/NotificationSettings'
+import BrowserPushSettings from '../components/settings/BrowserPushSettings'
 import FinancialPreferencesSummary from '../components/settings/FinancialPreferencesSummary'
 import SecuritySettings from '../components/settings/SecuritySettings'
 import DataExportSettings from '../components/settings/DataExportSettings'
@@ -91,10 +92,7 @@ const SettingsPage = () => {
                 saving={savingNotificationPreference}
               />
             )}
-            <p className={`text-caption ${styles.emailNotice}`}>
-              Email, SMS, and push notifications aren&rsquo;t available yet
-              <Badge variant="neutral">Soon</Badge>
-            </p>
+            <BrowserPushSettings />
           </SettingsSection>
 
           <SettingsSection icon="wallet" title="Financial Preferences" description="A summary of your financial configuration.">

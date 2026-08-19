@@ -30,6 +30,7 @@ import { getAuthErrorMessage } from '../../utils/authErrors'
 // Mirrors the column defaults in the 0015 migration — used before a
 // preferences row exists yet (every domain on by default).
 const DEFAULT_NOTIFICATION_PREFERENCES = {
+  daily_expenses: true,
   recurring_transactions: true,
   subscriptions: true,
   budgets: true,

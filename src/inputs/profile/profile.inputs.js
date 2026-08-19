@@ -18,12 +18,14 @@ export const profileInputs = [
     name: 'monthlyIncome',
     label: 'Monthly income',
     type: 'number',
+    step: '0.01',
     helperText: 'Your average take-home income per month',
   },
   {
     name: 'monthlySavingsTarget',
     label: 'Monthly savings target',
     type: 'number',
+    step: '0.01',
     helperText: 'How much you aim to save each month (optional)',
   },
 ]

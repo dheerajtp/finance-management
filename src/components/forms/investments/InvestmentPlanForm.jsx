@@ -12,7 +12,7 @@ const InvestmentPlanForm = ({ register, onSubmit, errors, saving, watchedFrequen
   <form onSubmit={onSubmit} className={styles.form}>
     <Input id="name" label={labels.name} type="text" error={errors.name?.message} {...register('name')} />
 
-    <Input id="amount" label={labels.amount} type="number" error={errors.amount?.message} {...register('amount')} />
+    <Input id="amount" label={labels.amount} type="number" step="0.01" error={errors.amount?.message} {...register('amount')} />
 
     <Select
       id="currency"

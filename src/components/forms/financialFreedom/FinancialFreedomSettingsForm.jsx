@@ -45,6 +45,7 @@ const FinancialFreedomSettingsForm = ({
         id="monthly_contribution"
         label={labels.monthlyContribution}
         type="number"
+        step="0.01"
         helperText="Defaults to your current monthly savings — override for planning"
         error={errors.monthly_contribution?.message}
         {...register('monthly_contribution')}

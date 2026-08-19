@@ -3,6 +3,7 @@ import Sidebar from './Sidebar'
 import Header from './Header'
 import MainContent from './MainContent'
 import useNotificationSync from '../../hooks/functionality/useNotificationSync'
+import useBrowserPush from '../../hooks/common/useBrowserPush'
 import styles from './AppLayout.module.css'
 
 const AppLayout = () => {
@@ -10,6 +11,7 @@ const AppLayout = () => {
   // inside this layout) — the right place for a once-per-session sync, not
   // any individual page.
   useNotificationSync()
+  useBrowserPush()
 
   return (
     <div className={styles.shell}>

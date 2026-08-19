@@ -11,6 +11,7 @@ export const accountInputs = [
     name: 'balance',
     label: 'Current balance',
     type: 'number',
+    step: '0.01',
     helperText: 'For credit cards, enter the amount currently owed',
   },
   { name: 'currency', label: 'Currency', type: 'select', placeholder: 'Select currency', options: currencyOptions },

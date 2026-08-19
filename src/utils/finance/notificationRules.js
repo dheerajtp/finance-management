@@ -266,6 +266,32 @@ export const detectProfileNotifications = (profile, userId) => {
   ]
 }
 
+// Daily expense reminder — at most once per calendar day. Fires after
+// 18:00 local time if no expense transaction exists for today. Dedupe key
+// is date-based so it can fire again tomorrow if still no expense.
+export const detectDailyExpenseReminder = (transactions, today) => {
+  const todayStr = format(today, 'yyyy-MM-dd')
+  const hour = today.getHours()
+  if (hour < 18) return []
+  const hasExpenseToday = transactions.some(
+    (t) => t.type === 'expense' && t.transaction_date === todayStr,
+  )
+  if (hasExpenseToday) return []
+  return [
+    {
+      type: 'daily_expense_reminder',
+      severity: 'info',
+      title: 'Log today’s expenses',
+      message: 'You haven’t logged any expenses today. Take a minute to add them.',
+      entityType: 'transaction',
+      entityId: null,
+      actionPath: '/transactions',
+      dedupeKey: `daily_expense_reminder:${todayStr}`,
+      expiresAt: endOfDay(today).toISOString(),
+    },
+  ]
+}
+
 // "At most once per relevant analysis period" — the year-month is part of
 // the dedupe key, so this can surface again in a later month if spending
 // history is still insufficient, but never twice within the same one.

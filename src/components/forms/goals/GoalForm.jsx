@@ -24,6 +24,7 @@ const GoalForm = ({ register, onSubmit, errors, saving, submitLabel = 'Save goal
             id={field.name}
             label={field.label}
             type={field.type}
+            step={field.step}
             helperText={field.helperText}
             error={errors[field.name]?.message}
             {...register(field.name)}

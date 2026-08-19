@@ -17,7 +17,9 @@ import {
   detectProfileNotifications,
   detectFinancialFreedomNotifications,
   detectInvestmentNotifications,
+  detectDailyExpenseReminder,
 } from '../../utils/finance/notificationRules'
+import { useTransactionsQuery } from '../api/useTransactionApi'
 import { formatCurrency } from '../../utils/finance/currency'
 
 // Maps each candidate's notification `type` to the preference column that
@@ -38,6 +40,7 @@ const PREFERENCE_KEY_BY_TYPE = {
   financial_freedom_insufficient_history: 'financial_freedom',
   investment_due: 'investments',
   investment_overdue: 'investments',
+  daily_expense_reminder: 'daily_expenses',
 }
 
 // Runs the deterministic rules in utils/finance/notificationRules.js against
@@ -60,6 +63,10 @@ const useNotificationSync = () => {
   const existingQuery = useNotificationsQuery({})
   const createMutation = useCreateNotificationMutation()
   const deleteExpiredMutation = useDeleteExpiredNotificationsMutation()
+  const todayTransactionsQuery = useTransactionsQuery({
+    fromDate: new Date().toISOString().slice(0, 10),
+    toDate: new Date().toISOString().slice(0, 10),
+  })
 
   const hasSyncedRef = useRef(false)
   const [isSyncing, setIsSyncing] = useState(false)
@@ -68,6 +75,7 @@ const useNotificationSync = () => {
     Boolean(currentUser) &&
     !planning.isLoading &&
     !commitments.isLoading &&
+    !todayTransactionsQuery.isLoading &&
     preferencesQuery.isFetched &&
     existingQuery.isFetched
 
@@ -94,6 +102,7 @@ const useNotificationSync = () => {
         ...detectProfileNotifications(profile, currentUser?.id),
         ...detectFinancialFreedomNotifications(planning.financialFreedom, today),
         ...detectInvestmentNotifications(commitments.investmentPlans, commitments.investmentContributions, today),
+        ...detectDailyExpenseReminder(todayTransactionsQuery.data ?? [], today),
       ]
 
       const toCreate = candidates.filter((candidate) => {

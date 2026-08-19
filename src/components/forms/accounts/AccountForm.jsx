@@ -24,6 +24,7 @@ const AccountForm = ({ register, onSubmit, errors, saving, submitLabel = 'Save a
             id={field.name}
             label={field.label}
             type={field.type}
+            step={field.step}
             helperText={field.helperText}
             error={errors[field.name]?.message}
             {...register(field.name)}

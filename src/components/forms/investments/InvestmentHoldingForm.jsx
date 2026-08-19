@@ -46,6 +46,7 @@ const InvestmentHoldingForm = ({ register, onSubmit, errors, saving, accountOpti
       id="invested_amount"
       label={labels.investedAmount}
       type="number"
+      step="0.01"
       helperText="Total amount invested so far"
       error={errors.invested_amount?.message}
       {...register('invested_amount')}
@@ -55,6 +56,7 @@ const InvestmentHoldingForm = ({ register, onSubmit, errors, saving, accountOpti
       id="current_value"
       label={labels.currentValue}
       type="number"
+      step="0.01"
       helperText="Current market value — you keep this up to date manually"
       error={errors.current_value?.message}
       {...register('current_value')}

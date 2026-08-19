@@ -47,6 +47,7 @@ const GoalTransactionAllocationForm = ({
         id="amount"
         label="Amount"
         type="number"
+        step="0.01"
         error={errors.amount?.message}
         {...register('amount')}
       />

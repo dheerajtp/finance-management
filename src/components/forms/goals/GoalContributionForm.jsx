@@ -12,6 +12,7 @@ const GoalContributionForm = ({ register, onSubmit, errors, saving, submitLabel 
           id={field.name}
           label={field.label}
           type={field.type}
+          step={field.step}
           helperText={field.helperText}
           error={errors[field.name]?.message}
           {...register(field.name)}
