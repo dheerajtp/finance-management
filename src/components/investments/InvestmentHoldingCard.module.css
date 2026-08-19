@@ -1,9 +1,10 @@
 .card {
   display: flex;
   flex-direction: column;
-  gap: 10px;
-  padding: 16px;
-  min-height: 148px;
+  gap: 0;
+  padding: 14px;
+  min-height: 162px;
+  height: 100%;
 }
 
 .header {
@@ -18,34 +19,63 @@
   flex: 1;
 }
 
+.header :global(.text-card-title) {
+  font-size: 0.875rem;
+  line-height: 1.35;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.header :global(.text-caption) {
+  font-size: 0.71875rem;
+  margin-top: 3px;
+}
+
 .headline {
   display: flex;
   flex-direction: column;
   gap: 2px;
+  padding-top: 10px;
 }
 
 .headline p {
   margin: 0;
 }
 
+.headline :global(.text-metric) {
+  font-size: 1.3125rem;
+  line-height: 1.1;
+}
+
+.headline :global(.text-secondary) {
+  font-size: 0.75rem;
+}
+
 .gainRow {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 10px;
   flex-wrap: wrap;
+  margin-top: 8px;
+}
+
+.gainRow :global(.text-delta) {
+  font-size: 0.75rem;
 }
 
 .actions {
   display: flex;
   gap: 6px;
-  margin-top: auto;
-  padding-top: 12px;
+  margin-top: 10px;
+  padding-top: 10px;
   border-top: 1px solid var(--border-subtle);
   flex-wrap: wrap;
 }
 
 .actions button {
-  height: 28px;
+  height: 26px;
   padding: 0 10px;
   font-size: 0.75rem;
 }

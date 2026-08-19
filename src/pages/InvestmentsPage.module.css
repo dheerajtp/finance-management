@@ -4,6 +4,12 @@
   gap: 16px;
 }
 
+/* header compact — keep 20–24px below divider instead of 34px (PageHeader 16 + gap 18) */
+.page > header {
+  margin-bottom: -6px !important;
+  padding-bottom: 14px !important;
+}
+
 .grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -21,7 +27,7 @@
   align-items: center;
   justify-content: space-between;
   gap: 12px;
-  margin-bottom: 4px;
+  margin-bottom: 2px;
 }
 
 .countBadge {
@@ -42,7 +48,14 @@
 .columnCard {
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 0;
+  min-height: 178px;
+  padding: 14px;
+}
+
+.columnCard .sectionHeader {
+  margin-bottom: 0;
+  padding-bottom: 0;
 }
 
 .emptyCompact {
@@ -50,16 +63,41 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  min-height: 120px;
+  min-height: 108px;
+  padding: 6px 0 4px;
 }
 
 .emptyCompact > * {
   width: 100%;
 }
 
+/* compact empty-state overrides — Investments only */
+.emptyCompact :global(.wrap) {
+  padding: 8px 12px 6px;
+  gap: 6px;
+}
+
+.emptyCompact :global(.icon) {
+  width: 32px;
+  height: 32px;
+  font-size: var(--icon-md);
+  margin-bottom: 2px;
+}
+
+.emptyCompact :global(.title) {
+  font-size: 0.8125rem;
+  margin-bottom: 1px;
+}
+
+.emptyCompact :global(.description) {
+  font-size: 0.75rem;
+  line-height: 1.4;
+  max-width: 30ch;
+}
+
 .columns {
   display: grid;
-  grid-template-columns: 1.6fr 1fr;
+  grid-template-columns: 1.85fr 1fr;
   gap: 16px;
   align-items: stretch;
 }
@@ -68,6 +106,29 @@
   display: flex;
   flex-direction: column;
   height: 100%;
+  min-height: 180px;
+}
+
+/* Upcoming empty (no emptyCompact wrapper) — make same compact density */
+.columns :global(.wrap) {
+  padding: 10px 12px 8px;
+  gap: 6px;
+}
+
+.columns :global(.icon) {
+  width: 32px;
+  height: 32px;
+  font-size: var(--icon-md);
+}
+
+.columns :global(.title) {
+  font-size: 0.8125rem;
+}
+
+.columns :global(.description) {
+  font-size: 0.75rem;
+  line-height: 1.4;
+  max-width: 30ch;
 }
 
 .planList {
@@ -80,5 +141,13 @@
 @media (max-width: 1024px) {
   .columns {
     grid-template-columns: 1fr;
+  }
+
+  .columns > * {
+    min-height: 0;
+  }
+
+  .columnCard {
+    min-height: 0;
   }
 }

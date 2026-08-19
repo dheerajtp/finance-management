@@ -33,7 +33,7 @@ const InvestmentHoldings = ({
   onManageSip,
   onToggleActive,
 }) => (
-  <section>
+  <section className={styles.holdings}>
     <div className={styles.head}>
       <h2 className="text-section-title">Investment Holdings</h2>
     </div>
