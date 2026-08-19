@@ -1,6 +1,4 @@
-import { Link } from 'react-router-dom'
 import NetPosition from '../accounts/NetPosition'
-import Icon from '../ui/Icon'
 import styles from './AccountPosition.module.css'
 
 // Thin dashboard-context wrapper — all the actual assets/liabilities/net
@@ -13,25 +11,15 @@ const AccountPosition = ({ accounts, loading, primaryCurrency }) => {
   const activeCount = accounts.filter((account) => account.is_active).length
 
   return (
-    <div>
-      <NetPosition accounts={accounts} loading={loading} compact primaryCurrency={primaryCurrency} />
-      {!loading && (
-        <>
-          <p className={`text-caption ${styles.count}`}>
-            {activeCount} active account{activeCount === 1 ? '' : 's'}
-          </p>
-          <div className={styles.links}>
-            <Link to="/accounts" className={styles.viewAll}>
-              View all accounts
-              <Icon name="chevronRight" size="var(--icon-xs)" />
-            </Link>
-            <Link to="/net-worth" className={styles.viewAll}>
-              View net worth
-              <Icon name="chevronRight" size="var(--icon-xs)" />
-            </Link>
-          </div>
-        </>
-      )}
+    <div className={styles.wrap}>
+      <NetPosition
+        accounts={accounts}
+        loading={loading}
+        compact
+        primaryCurrency={primaryCurrency}
+        activeCount={activeCount}
+        showDashboardLinks
+      />
     </div>
   )
 }

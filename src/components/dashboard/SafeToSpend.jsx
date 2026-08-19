@@ -38,36 +38,47 @@ const SafeToSpend = ({ isLoading, isError, refetch, currency, hasIncome, isOverC
 
   return (
     <Card className={styles.card}>
-      <p className="text-section-title">Safe to Spend</p>
+      <div className={styles.header}>
+        <p className="text-section-title">Safe to Spend</p>
+        <span className={styles.headerIcon} aria-hidden="true">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+            <rect x="2" y="5" width="12" height="8" rx="1.5" stroke="currentColor" strokeWidth="1.2" />
+            <path d="M2 7.5H14" stroke="currentColor" strokeWidth="1.2" />
+            <circle cx="11.5" cy="9.2" r="1.2" fill="currentColor" />
+          </svg>
+        </span>
+      </div>
 
       {!hasIncome ? (
-        <p className={`text-secondary ${styles.notice}`}>
-          Safe-to-spend amount isn&rsquo;t available because no income has been recorded for this month.
-        </p>
+        <div className={styles.emptyWrap}>
+          <div className={styles.emptyIcon}>
+            <span className={styles.walletIcon}>◧</span>
+          </div>
+          <div className={styles.emptyText}>
+            <p className={styles.emptyTitle}>Safe-to-spend amount isn&rsquo;t available because no income has been recorded for this month.</p>
+          </div>
+        </div>
       ) : isOverCommitted ? (
-        <>
+        <div className={styles.valueWrap}>
           <p className={`text-hero-metric ${styles.overAmount}`}>{formatCurrency(overCommittedAmount, currency)}</p>
           <p className="text-caption">Planned commitments are above recorded income this month.</p>
-        </>
+        </div>
       ) : (
-        <>
+        <div className={styles.valueWrap}>
           <p className={`text-hero-metric ${styles.amount}`}>{formatCurrency(availableAmount, currency)}</p>
           <p className="text-caption">After essential expenses and planned commitments.</p>
-        </>
-      )}
-
-      {hasIncome && !isOverCommitted && (
-        <div className={styles.list}>
-          {categories.map((category) => (
-            <div key={category.key} className={styles.row}>
-              <span className="text-secondary">{FLEXIBLE_CATEGORY_LABEL[category.key]}</span>
-              <span className="text-body">
-                {category.remaining >= 0
-                  ? `${formatCurrency(category.remaining, currency)} left`
-                  : `${formatCurrency(Math.abs(category.remaining), currency)} over`}
-              </span>
-            </div>
-          ))}
+          <div className={styles.list}>
+            {categories.map((category) => (
+              <div key={category.key} className={styles.row}>
+                <span className="text-secondary">{FLEXIBLE_CATEGORY_LABEL[category.key]}</span>
+                <span className="text-body">
+                  {category.remaining >= 0
+                    ? `${formatCurrency(category.remaining, currency)} left`
+                    : `${formatCurrency(Math.abs(category.remaining), currency)} over`}
+                </span>
+              </div>
+            ))}
+          </div>
         </div>
       )}
 

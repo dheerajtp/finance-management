@@ -4,7 +4,7 @@ import Badge from '../ui/Badge'
 import Button from '../ui/Button'
 import Skeleton from '../ui/Skeleton'
 import ErrorState from '../ui/ErrorState'
-import EmptyState from '../ui/EmptyState'
+import Icon from '../ui/Icon'
 import FinancialHealthItem from './FinancialHealthItem'
 import FinancialHealthPriorities from './FinancialHealthPriorities'
 import styles from './FinancialHealth.module.css'
@@ -66,24 +66,31 @@ const FinancialHealth = ({ isLoading, isError, refetch, areas, priorities, isCon
   if (!isConfigured) {
     return (
       <Section title="Financial Health">
-        <EmptyState
-          icon="compass"
-          title="Set up your financial plans"
-          description="Configure an emergency fund, savings target, or investment plan to start tracking progress against your own goals."
-          action={
+        <div className={styles.emptyWrap}>
+          <div className={styles.emptyVisual}>
+            <div className={styles.ringPlaceholder}>
+              <Icon name="shield" size="var(--icon-lg)" className={styles.ringIcon} />
+            </div>
+          </div>
+          <div className={styles.emptyContent}>
+            <p className={styles.emptyTitle}>Set up your financial plans</p>
+            <p className={styles.emptyDescription}>
+              Configure an emergency fund, savings target, or investment plan to start tracking progress against your
+              own goals.
+            </p>
             <div className={styles.emptyActions}>
-              <Button variant="secondary" onClick={() => navigate('/profile')}>
+              <Button variant="secondary" size="sm" onClick={() => navigate('/profile')}>
                 Set savings target
               </Button>
-              <Button variant="secondary" onClick={() => navigate('/emergency-fund')}>
+              <Button variant="secondary" size="sm" onClick={() => navigate('/emergency-fund')}>
                 Set up emergency fund
               </Button>
-              <Button variant="secondary" onClick={() => navigate('/investments')}>
+              <Button variant="primary" size="sm" onClick={() => navigate('/investments')}>
                 Add an investment
               </Button>
             </div>
-          }
-        />
+          </div>
+        </div>
       </Section>
     )
   }

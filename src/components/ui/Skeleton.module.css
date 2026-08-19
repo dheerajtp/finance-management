@@ -1,26 +1,15 @@
 .skeleton {
-  background: linear-gradient(
-    90deg,
-    var(--color-surface-elevated) 25%,
-    var(--color-surface-interactive) 37%,
-    var(--color-surface-elevated) 63%
-  );
+  background: linear-gradient(90deg, var(--color-surface-elevated) 26%, var(--color-surface-interactive) 38%, var(--color-surface-elevated) 62%);
   background-size: 400% 100%;
-  border-radius: var(--radius-sm);
-  animation: shimmer 1.6s ease infinite;
+  border-radius: 6px;
+  animation: shimmer 1.4s ease infinite;
 }
 
 @keyframes shimmer {
-  0% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0 50%;
-  }
+  0% { background-position: 100% 50%; }
+  100% { background-position: 0 50%; }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .skeleton {
-    animation: none;
-  }
+  .skeleton { animation: none; }
 }

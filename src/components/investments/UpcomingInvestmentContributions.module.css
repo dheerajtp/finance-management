@@ -1,38 +1,41 @@
 .list {
   display: flex;
   flex-direction: column;
-  gap: var(--space-3);
-  margin-top: var(--space-3);
+  gap: 8px;
+  margin-top: 4px;
 }
 
 .row {
   display: flex;
   align-items: center;
-  gap: var(--space-3);
+  gap: 12px;
+  padding: 10px 12px;
+  background: var(--color-surface-tint);
+  border: 1px solid var(--border-subtle);
+  border-radius: 8px;
 }
 
 .rowIcon {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 2rem;
-  height: 2rem;
+  width: 32px;
+  height: 32px;
   flex-shrink: 0;
-  border-radius: var(--radius-md);
-  background: var(--color-surface-interactive);
+  border-radius: 8px;
+  background: var(--color-surface);
+  border: 1px solid var(--border-subtle);
   color: var(--color-text-secondary);
 }
 
 .identity {
   flex: 1;
   min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
 }
 
 .identity p {
   margin: 0;
-}
-
-.row > p {
-  margin: 0;
-  font-weight: 600;
 }

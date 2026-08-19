@@ -1,29 +1,31 @@
 .wrap {
   display: flex;
   flex-direction: column;
-  gap: var(--space-2);
+  gap: 6px;
 }
 
 .header {
   display: flex;
   align-items: baseline;
   justify-content: space-between;
+  gap: 12px;
 }
 
 .label {
-  font-size: 0.8125rem;
+  font-size: 0.75rem;
+  font-weight: 500;
   color: var(--color-text-secondary);
 }
 
 .value {
-  font-size: 0.8125rem;
+  font-size: 0.75rem;
   font-weight: 600;
   color: var(--color-text-primary);
   font-variant-numeric: tabular-nums;
 }
 
 .track {
-  height: 8px;
+  height: 6px;
   border-radius: var(--radius-full);
   background: var(--color-surface-interactive);
   overflow: hidden;

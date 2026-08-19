@@ -1,7 +1,7 @@
 .group {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: var(--space-3);
+  gap: 8px;
 }
 
 .card {
@@ -9,25 +9,29 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: var(--space-2);
-  padding: var(--space-4) var(--space-3);
+  gap: 8px;
+  padding: 16px 12px;
   border: 1px solid var(--border-default);
-  border-radius: var(--radius-md);
+  border-radius: 8px;
   background: var(--color-surface-elevated);
   color: var(--color-text-secondary);
   cursor: pointer;
-  transition: border-color var(--transition-fast), background-color var(--transition-fast), color var(--transition-fast);
+  transition: border-color 120ms ease, background-color 120ms ease, color 120ms ease;
+  min-height: 76px;
+  justify-content: center;
 }
 
 .card:hover {
   border-color: var(--border-strong);
   color: var(--color-text-primary);
+  background: var(--color-surface-interactive);
 }
 
 .active {
   border-color: var(--color-accent);
   background: var(--color-accent-muted);
   color: var(--color-accent);
+  box-shadow: 0 0 0 1px var(--color-accent);
 }
 
 .input {

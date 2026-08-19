@@ -2,14 +2,14 @@ import Switch from '../ui/Switch'
 import SettingsRow from './SettingsRow'
 
 const DOMAINS = [
-  { key: 'recurring_transactions', label: 'Recurring transactions', description: 'Due and overdue reminders.' },
-  { key: 'subscriptions', label: 'Subscriptions', description: 'Upcoming renewal reminders.' },
-  { key: 'budgets', label: 'Budgets', description: 'Approaching-limit and over-budget alerts.' },
-  { key: 'goals', label: 'Goals', description: 'Milestone and target-reached notices.' },
-  { key: 'emergency_fund', label: 'Emergency fund', description: 'Milestone and target-reached notices.' },
-  { key: 'financial_freedom', label: 'Financial freedom', description: 'Data-readiness notices.' },
-  { key: 'investments', label: 'Investments', description: 'SIP due and overdue reminders.' },
-  { key: 'profile', label: 'Profile', description: 'Reminder to complete your financial profile.' },
+  { key: 'recurring_transactions', label: 'Recurring transactions', description: 'Due and overdue reminders.', icon: 'calendarCheck' },
+  { key: 'subscriptions', label: 'Subscriptions', description: 'Upcoming renewal reminders.', icon: 'refresh' },
+  { key: 'budgets', label: 'Budgets', description: 'Approaching-limit and over-budget alerts.', icon: 'target' },
+  { key: 'goals', label: 'Goals', description: 'Milestone and target-reached notices.', icon: 'flag' },
+  { key: 'emergency_fund', label: 'Emergency fund', description: 'Milestone and target-reached notices.', icon: 'shield' },
+  { key: 'financial_freedom', label: 'Financial freedom', description: 'Data-readiness notices.', icon: 'compass' },
+  { key: 'investments', label: 'Investments', description: 'SIP due and overdue reminders.', icon: 'chartCandlestick' },
+  { key: 'profile', label: 'Profile', description: 'Reminder to complete your financial profile.', icon: 'user' },
 ]
 
 // Presentation only — every toggle here just flips one column in
@@ -23,6 +23,7 @@ const NotificationSettings = ({ preferences, onToggle, saving }) => (
     {DOMAINS.map((domain) => (
       <SettingsRow
         key={domain.key}
+        icon={domain.icon}
         title={domain.label}
         description={domain.description}
         action={

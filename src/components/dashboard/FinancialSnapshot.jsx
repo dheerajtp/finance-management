@@ -47,27 +47,32 @@ const FinancialSnapshot = ({ loading, primaryAccountGroup, otherAccountGroups, m
 
       <div className={styles.metrics}>
         <div className={styles.metric}>
+          <span className={`${styles.metricAccent} ${styles.accentIncome}`} aria-hidden="true" />
           <p className="text-label">Income</p>
           <p className={`text-metric ${styles.up}`}>{formatCurrency(metrics.income, currency)}</p>
           <p className="text-caption">{periodSuffix}</p>
         </div>
         <div className={styles.metric}>
+          <span className={`${styles.metricAccent} ${styles.accentExpenses}`} aria-hidden="true" />
           <p className="text-label">Expenses</p>
           <p className={`text-metric ${styles.down}`}>{formatCurrency(metrics.expenses, currency)}</p>
           <p className="text-caption">{periodSuffix}</p>
         </div>
         <div className={styles.metric}>
+          <span className={`${styles.metricAccent} ${styles.accentSavings}`} aria-hidden="true" />
           <p className="text-label">Savings</p>
           <p className="text-metric">{formatCurrency(metrics.savings, currency)}</p>
           <p className="text-caption">income minus expenses</p>
         </div>
         <div className={styles.metric}>
+          <span className={`${styles.metricAccent} ${styles.accentRate}`} aria-hidden="true" />
           <p className="text-label">Savings Rate</p>
           <p className="text-metric">{metrics.savingsRate === null ? 'N/A' : `${metrics.savingsRate.toFixed(1)}%`}</p>
           <p className="text-caption">{periodSuffix}</p>
         </div>
         {metrics.invested > 0 && (
           <div className={styles.metric}>
+            <span className={`${styles.metricAccent} ${styles.accentInvested}`} aria-hidden="true" />
             <p className="text-label">Invested</p>
             <p className="text-metric">{formatCurrency(metrics.invested, currency)}</p>
             <p className="text-caption">

@@ -52,15 +52,15 @@ const SettingsPage = () => {
   } = useActionSettings()
 
   return (
-    <div>
+    <div className={styles.page}>
       <PageHeader title="Settings" description="Manage your account and application preferences." />
 
       <div className={styles.layout}>
         <div className={styles.main}>
           <SettingsSection icon="user" title="Profile" description="Your identity across Financial Freedom OS.">
-            <SettingsRow title="Name" value={profile?.name || 'Not set'} />
-            <SettingsRow title="Email" value={currentUser?.email} />
-            <SettingsRow title="Currency" value={profile?.currency ?? 'Not set'} />
+            <SettingsRow icon="user" title="Name" value={profile?.name || 'Not set'} />
+            <SettingsRow icon="inbox" title="Email" value={currentUser?.email} />
+            <SettingsRow icon="wallet" title="Currency" value={profile?.currency ?? 'Not set'} />
             <Link to="/profile" className={styles.editProfileLink}>
               <Button variant="secondary">Edit profile</Button>
             </Link>

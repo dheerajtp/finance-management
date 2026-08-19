@@ -45,7 +45,7 @@ const EmergencyFundPage = () => {
 
   if (!hasProfileCurrency && !isLoading) {
     return (
-      <div>
+      <div className={styles.page}>
         <PageHeader title="Emergency Fund" />
         <EmptyState
           title="Complete your financial profile first"
@@ -58,7 +58,7 @@ const EmergencyFundPage = () => {
 
   if (isLoading) {
     return (
-      <div>
+      <div className={styles.page}>
         <PageHeader title="Emergency Fund" />
         <div className={styles.skeletonGrid}>
           <Skeleton height="6rem" radius="var(--radius-lg)" />
@@ -76,7 +76,7 @@ const EmergencyFundPage = () => {
   const targetMonths = settings?.target_months ?? DEFAULT_EMERGENCY_FUND_TARGET_MONTHS
 
   return (
-    <div>
+    <div className={styles.page}>
       <PageHeader
         title="Emergency Fund"
         description="A calm, goal-oriented buffer sized to your actual essential spending."
@@ -95,17 +95,22 @@ const EmergencyFundPage = () => {
         targetMonths={targetMonths}
       />
 
-      <Card className={styles.section}>
-        <p className="text-section-title">Target Configuration</p>
-        <EmergencyFundForm
-          register={register}
-          onSubmit={onSubmit}
-          errors={errors}
-          saving={saving}
-          accountOptions={accountOptions}
-          hasEligibleAccounts={hasEligibleAccounts}
-        />
-      </Card>
+      <div className={styles.gridSecondary}>
+        <Card>
+          <p className="text-section-title">Target Configuration</p>
+          <EmergencyFundForm
+            register={register}
+            onSubmit={onSubmit}
+            errors={errors}
+            saving={saving}
+            accountOptions={accountOptions}
+            hasEligibleAccounts={hasEligibleAccounts}
+          />
+        </Card>
+        <Card>
+          <EssentialExpenseBaseline baseline={baseline} currency={currency} />
+        </Card>
+      </div>
 
       <div className={styles.grid}>
         <Card>
@@ -129,11 +134,7 @@ const EmergencyFundPage = () => {
         </Card>
       </div>
 
-      <Card variant="flat" className={styles.section}>
-        <EssentialExpenseBaseline baseline={baseline} currency={currency} />
-      </Card>
-
-      <Card variant="flat" className={styles.section}>
+      <Card>
         <TargetCalculationBreakdown baseline={baseline} targetMonths={targetMonths} target={target} currency={currency} status={status} />
       </Card>
     </div>

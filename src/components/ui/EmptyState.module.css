@@ -3,25 +3,63 @@
   flex-direction: column;
   align-items: center;
   text-align: center;
-  gap: var(--space-3);
-  padding: var(--space-7) var(--space-5);
+  gap: 8px;
+  padding: 20px 16px;
+  background: transparent;
+  border: none;
+  border-radius: 8px;
 }
 
 .icon {
-  font-size: var(--icon-xl);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--color-surface-tint);
+  border: 1px solid var(--border-subtle);
   color: var(--color-text-muted);
+  font-size: var(--icon-lg);
+  flex-shrink: 0;
 }
 
 .title {
   margin: 0;
-  font-size: 1rem;
+  font-size: 0.875rem;
   font-weight: 600;
+  letter-spacing: -0.01em;
   color: var(--color-text-primary);
+  line-height: 1.3;
 }
 
 .description {
   margin: 0;
-  max-width: 32ch;
-  font-size: 0.875rem;
+  max-width: 36ch;
+  font-size: 0.8125rem;
+  line-height: 1.5;
   color: var(--color-text-secondary);
+}
+
+/* Horizontal variant for dashboard spending overview etc */
+.horizontal {
+  flex-direction: row;
+  align-items: center;
+  text-align: left;
+  gap: 16px;
+  padding: 12px 0;
+}
+
+.horizontal .icon {
+  width: 48px;
+  height: 48px;
+}
+
+.horizontal .title {
+  text-align: left;
+}
+
+.horizontal .description {
+  text-align: left;
+  max-width: 42ch;
 }

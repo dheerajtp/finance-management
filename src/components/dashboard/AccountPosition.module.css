@@ -1,24 +1,5 @@
-.count {
-  margin-top: var(--space-4);
-}
-
-.links {
+.wrap {
   display: flex;
   flex-direction: column;
-  gap: var(--space-2);
-  margin-top: var(--space-2);
-}
-
-.viewAll {
-  display: inline-flex;
-  align-items: center;
-  gap: var(--space-1);
-  font-size: 0.8125rem;
-  font-weight: 500;
-  color: var(--color-text-secondary);
-  text-decoration: none;
-}
-
-.viewAll:hover {
-  color: var(--color-accent);
+  height: 100%;
 }

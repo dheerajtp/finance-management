@@ -1,54 +1,101 @@
+.dashboard {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.pageHeader {
+  margin-bottom: 0;
+  padding-bottom: 12px;
+}
+
 .periodSelect {
   min-width: 160px;
 }
 
 .notice {
-  margin: var(--space-3) 0;
+  margin: 0;
+  padding: 10px 12px;
+  background: var(--color-warning-muted);
+  border: 1px solid color-mix(in srgb, var(--color-warning) 18%, transparent);
+  border-radius: 7px;
+  font-size: 0.8125rem;
 }
 
 .section {
-  margin-top: var(--space-7);
+  margin-top: 0;
 }
 
 .utilityRow {
-  margin-top: var(--space-5);
+  margin-top: 0;
 }
 
-/* Asymmetric workspace rows — never two equal-weight boxes. */
 .row {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: var(--space-6);
+  gap: 16px;
 }
 
 .rowWide {
   display: grid;
   grid-template-columns: 1.7fr 1fr;
-  gap: var(--space-6);
-  align-items: start;
+  gap: 16px;
+  align-items: stretch;
 }
 
 .rowNarrow {
   display: grid;
   grid-template-columns: 1fr 1.3fr;
-  gap: var(--space-6);
-  align-items: start;
+  gap: 16px;
+  align-items: stretch;
+}
+
+.rowThree {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 16px;
+  align-items: stretch;
+}
+
+.rowEqual {
+  align-items: stretch;
+}
+
+.rowEqual > * {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.card {
+  background: var(--color-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: 10px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
 }
 
 .spendingStack {
   display: flex;
   flex-direction: column;
-  gap: var(--space-6);
+  gap: 16px;
+  height: 100%;
+}
+
+.spendingStack > * {
+  flex: 1;
 }
 
 .banner {
   display: flex;
   align-items: center;
-  gap: var(--space-3);
-  padding: var(--space-3) var(--space-4);
-  margin-top: var(--space-5);
+  gap: 12px;
+  padding: 10px 12px;
+  margin-top: 0;
   border: 1px solid var(--border-subtle);
-  border-radius: var(--radius-md);
+  border-radius: 8px;
   background: var(--color-surface);
   flex-wrap: wrap;
 }
@@ -61,12 +108,26 @@
 .bannerText {
   flex: 1;
   min-width: 200px;
+  font-size: 0.8125rem;
+}
+
+@media (max-width: 1100px) {
+  .rowThree {
+    grid-template-columns: 1fr 1fr;
+  }
 }
 
 @media (max-width: 1024px) {
   .row,
   .rowWide,
-  .rowNarrow {
+  .rowNarrow,
+  .rowThree {
     grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .card {
+    padding: 14px;
   }
 }

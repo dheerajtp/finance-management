@@ -1,0 +1,16 @@
+.wrap {
+  display: inline-flex;
+  flex-shrink: 0;
+  overflow: hidden;
+  border-radius: 6px;
+}
+
+.placeholder {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--color-surface-tint);
+  border: 1px dashed var(--border-subtle);
+  border-radius: 8px;
+  opacity: 0.85;
+}

@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom'
 import Progress from '../ui/Progress'
-import EmptyState from '../ui/EmptyState'
 import Icon from '../ui/Icon'
+import DonutChart from '../ui/DonutChart'
 import { formatCurrency } from '../../utils/finance/currency'
 import styles from './SpendingBreakdown.module.css'
 
@@ -16,7 +16,7 @@ const ROWS = [
 
 const SpendingBreakdown = ({ breakdown, currency }) => {
   return (
-    <section>
+    <section className={styles.section}>
       <div className={styles.head}>
         <p className="text-section-title">Spending Overview</p>
         {breakdown.total > 0 && (
@@ -28,22 +28,39 @@ const SpendingBreakdown = ({ breakdown, currency }) => {
       </div>
 
       {breakdown.total === 0 ? (
-        <EmptyState
-          icon="barChart"
-          title="Your spending picture will appear here"
-          description="Categorize your expenses to see your essential vs. discretionary split."
-        />
+        <div className={styles.empty}>
+          <span className={styles.emptyIcon}>
+            <Icon name="barChart" size="var(--icon-lg)" />
+          </span>
+          <div className={styles.emptyText}>
+            <p className={styles.emptyTitle}>Your spending picture will appear here</p>
+            <p className={styles.emptyDescription}>Categorize your expenses to see your essential vs. discretionary split.</p>
+          </div>
+        </div>
       ) : (
-        <div className={styles.list}>
-          {ROWS.map((row) => (
-            <Progress
-              key={row.key}
-              label={row.label}
-              value={`${formatCurrency(breakdown[row.key], currency)} · ${Math.round(breakdown[`${row.key}Percentage`])}%`}
-              percentage={breakdown[`${row.key}Percentage`]}
-              state={row.state}
-            />
-          ))}
+        <div className={styles.chartLayout}>
+          <DonutChart
+            size={110}
+            strokeWidth={12}
+            segments={[
+              { value: breakdown.essential, color: 'var(--color-success)' },
+              { value: breakdown.discretionary, color: 'var(--color-accent)' },
+              { value: breakdown.uncategorized, color: 'var(--color-warning)' },
+            ]}
+            centerLabel={`${Math.round(breakdown.essentialPercentage)}%`}
+            centerSublabel="essential"
+          />
+          <div className={styles.list}>
+            {ROWS.map((row) => (
+              <Progress
+                key={row.key}
+                label={row.label}
+                value={`${formatCurrency(breakdown[row.key], currency)} · ${Math.round(breakdown[`${row.key}Percentage`])}%`}
+                percentage={breakdown[`${row.key}Percentage`]}
+                state={row.state}
+              />
+            ))}
+          </div>
         </div>
       )}
     </section>

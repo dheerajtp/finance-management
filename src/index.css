@@ -1,54 +1,52 @@
 :root {
-  /* Backgrounds — layered dark navy surfaces, darkest to lightest */
-  --color-bg: #080d16;
-  --color-sidebar: #0a1020;
+  /* 2026 Enterprise — neutral, data-dense, minimal. Dark is the primary theme. */
+  --color-bg: #090d14;
+  --color-sidebar: #0c111e;
   --color-surface: #111827;
-  --color-surface-elevated: #151f31;
-  --color-surface-interactive: #1b263a;
-  /* A whisper-quiet secondary surface for grouping content without a full
-     card boundary — one shade off the page background, not a bordered box. */
-  --color-surface-tint: #0d1320;
+  --color-surface-elevated: #151e2f;
+  --color-surface-interactive: #1c2942;
+  /* Subtle tint for grouping without a card */
+  --color-surface-tint: #0e1422;
 
-  /* Borders */
-  --border-subtle: #182234;
-  --border-default: #253248;
+  /* Borders — hairline, restrained */
+  --border-subtle: #1a2436;
+  --border-default: #25324a;
   --border-strong: #34445e;
 
-  /* Typography colors */
-  --color-text-primary: #f5f7fa;
-  --color-text-secondary: #a8b3c5;
-  --color-text-muted: #68758a;
+  /* Typography */
+  --color-text-primary: #f1f4f8;
+  --color-text-secondary: #9aa8bf;
+  --color-text-muted: #6b7a90;
   --color-text-inverse: #06090f;
 
-  /* Accent */
-  --color-accent: #4f8cff;
-  --color-accent-hover: #6ba0ff;
-  --color-accent-active: #3d76e0;
-  --color-accent-muted: #182544;
+  /* Accent — restrained, enterprise */
+  --color-accent: #3b82f6;
+  --color-accent-hover: #518fee;
+  --color-accent-active: #2f6bd6;
+  --color-accent-muted: #162544;
 
-  /* Semantic */
-  --color-success: #3dd68c;
-  --color-success-muted: #112b21;
-  --color-warning: #e8a33d;
-  --color-warning-muted: #33260f;
-  --color-danger: #f0555b;
-  --color-danger-muted: #331417;
-  --color-info: #4fa8ff;
-  --color-info-muted: #10263f;
-  --color-purple: #a48bff;
-  --color-purple-muted: #241c40;
+  /* Semantic — slightly desaturated for enterprise */
+  --color-success: #22c55e;
+  --color-success-muted: #0f2a1e;
+  --color-warning: #eab308;
+  --color-warning-muted: #2e2510;
+  --color-danger: #ef4444;
+  --color-danger-muted: #2e1416;
+  --color-info: #38bdf8;
+  --color-info-muted: #122a3a;
+  --color-purple: #a78bfa;
+  --color-purple-muted: #221c38;
 
-  /* Effects */
-  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.28);
-  --shadow-md: 0 1px 0 rgba(255, 255, 255, 0.03) inset, 0 8px 20px rgba(0, 0, 0, 0.3);
-  --shadow-lg: 0 1px 0 rgba(255, 255, 255, 0.04) inset, 0 20px 44px rgba(0, 0, 0, 0.42);
-  --color-backdrop: rgba(4, 6, 10, 0.65);
-  --focus-ring: 0 0 0 3px var(--color-accent-muted), 0 0 0 1px var(--color-accent);
+  /* Effects — minimal shadows, no decorative depth */
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.2);
+  --shadow-md: 0 1px 3px rgba(0, 0, 0, 0.22), 0 1px 1px rgba(0, 0, 0, 0.14);
+  --shadow-lg: 0 4px 16px rgba(0, 0, 0, 0.28);
+  --color-backdrop: rgba(4, 8, 16, 0.58);
+  --focus-ring: 0 0 0 2px var(--color-bg), 0 0 0 4px var(--color-accent-muted), 0 0 0 1px var(--color-accent);
   --transition-fast: 120ms ease;
   --transition-base: 180ms ease;
 
-  /* Layout — tight spacing inside a related group (1-3), medium between
-     subsections (4-5), large between major workspace sections (6-8). */
+  /* Layout */
   --space-1: 0.25rem;
   --space-2: 0.5rem;
   --space-3: 0.75rem;
@@ -58,68 +56,63 @@
   --space-7: 3rem;
   --space-8: 4rem;
 
-  --radius-sm: 6px;
-  --radius-md: 10px;
-  --radius-lg: 14px;
+  --radius-sm: 5px;
+  --radius-md: 7px;
+  --radius-lg: 10px;
   --radius-full: 999px;
 
   --container-max: 1280px;
+  --sidebar-width: 240px;
+  --sidebar-collapsed-width: 64px;
+  --header-height: 56px;
 
-  /* Icon sizes — every <Icon> consumer picks one of these rather than an
-     arbitrary size, so stroke weight and visual density stay consistent. */
-  --icon-xs: 0.875rem;
-  --icon-sm: 1rem;
-  --icon-md: 1.125rem;
-  --icon-lg: 1.375rem;
-  --icon-xl: 1.75rem;
+  /* Icon sizes — consistent enterprise density */
+  --icon-xs: 0.8125rem;
+  --icon-sm: 0.9375rem;
+  --icon-md: 1.0625rem;
+  --icon-lg: 1.25rem;
+  --icon-xl: 1.5rem;
 
   color-scheme: dark;
 }
 
-/* Tactile Light — same restrained, tactile visual language as the default
-   Neo-Dark palette above, just inverted. Applied via [data-theme="light"] on
-   <html> by useThemeSync (Settings > Appearance). Every component reads
-   these tokens rather than hardcoding color, so this one block is enough to
-   re-theme the whole app. */
 :root[data-theme='light'] {
-  --color-bg: #f4f5f8;
+  --color-bg: #f6f7f9;
   --color-sidebar: #ffffff;
   --color-surface: #ffffff;
   --color-surface-elevated: #ffffff;
-  /* A secondary surface for grouping content without a card boundary —
-     slightly tinted off white, not another bordered box. */
-  --color-surface-tint: #eef0f3;
+  --color-surface-tint: #f1f3f5;
   --color-surface-interactive: #eef1f6;
 
   --border-subtle: #e6e8ee;
-  --border-default: #d8dce4;
-  --border-strong: #b7bece;
+  --border-default: #dee2e8;
+  --border-strong: #b9c0d0;
 
-  --color-text-primary: #12151c;
-  --color-text-secondary: #4c5566;
-  --color-text-muted: #6b7280;
+  --color-text-primary: #111827;
+  --color-text-secondary: #5c667a;
+  --color-text-muted: #7a869a;
   --color-text-inverse: #ffffff;
 
-  --color-accent: #3568e0;
-  --color-accent-hover: #2c58c4;
-  --color-accent-active: #24489f;
-  --color-accent-muted: #e6ecfd;
+  --color-accent: #2563eb;
+  --color-accent-hover: #1d4ed8;
+  --color-accent-active: #1e40af;
+  --color-accent-muted: #e8eefd;
 
-  --color-success: #1a9160;
-  --color-success-muted: #e2f6ec;
-  --color-warning: #a3690b;
-  --color-warning-muted: #fbf0da;
-  --color-danger: #d13a3f;
-  --color-danger-muted: #fbe8e9;
-  --color-info: #2b74c9;
-  --color-info-muted: #e7f1fb;
-  --color-purple: #7457e0;
-  --color-purple-muted: #ede8fd;
+  --color-success: #16a34a;
+  --color-success-muted: #dcfce7;
+  --color-warning: #a16207;
+  --color-warning-muted: #fef9c3;
+  --color-danger: #dc2626;
+  --color-danger-muted: #fee2e2;
+  --color-info: #0284c7;
+  --color-info-muted: #e0f2fe;
+  --color-purple: #7c3aed;
+  --color-purple-muted: #ede9fe;
 
-  --shadow-sm: 0 1px 2px rgba(18, 21, 28, 0.06);
-  --shadow-md: 0 1px 0 rgba(255, 255, 255, 0.6) inset, 0 8px 20px rgba(18, 21, 28, 0.08);
-  --shadow-lg: 0 1px 0 rgba(255, 255, 255, 0.7) inset, 0 20px 48px rgba(18, 21, 28, 0.12);
-  --color-backdrop: rgba(15, 18, 26, 0.4);
+  --shadow-sm: 0 1px 2px rgba(15, 23, 42, 0.06);
+  --shadow-md: 0 1px 3px rgba(15, 23, 42, 0.07), 0 1px 2px rgba(15, 23, 42, 0.05);
+  --shadow-lg: 0 8px 24px rgba(15, 23, 42, 0.08);
+  --color-backdrop: rgba(15, 23, 42, 0.32);
 
   color-scheme: light;
 }
@@ -178,40 +171,43 @@ select {
   border: 0;
 }
 
-/* Typography hierarchy */
-
+/* Typography — enterprise: compact, high-density */
 .text-page-title {
   margin: 0;
-  font-size: 1.75rem;
-  font-weight: 700;
-  letter-spacing: -0.01em;
+  font-size: 1.4375rem;
+  font-weight: 650;
+  letter-spacing: -0.015em;
+  line-height: 1.2;
   color: var(--color-text-primary);
 }
 
 .text-page-subtitle {
   margin: 0;
-  font-size: 1rem;
+  font-size: 0.875rem;
   font-weight: 400;
+  line-height: 1.5;
   color: var(--color-text-secondary);
 }
 
 .text-section-title {
   margin: 0;
-  font-size: 1.125rem;
+  font-size: 0.9375rem;
   font-weight: 600;
+  letter-spacing: -0.01em;
   color: var(--color-text-primary);
 }
 
 .text-card-title {
   margin: 0;
-  font-size: 0.9375rem;
+  font-size: 0.875rem;
   font-weight: 600;
+  line-height: 1.4;
   color: var(--color-text-primary);
 }
 
 .text-body {
   margin: 0;
-  font-size: 0.9375rem;
+  font-size: 0.875rem;
   font-weight: 400;
   color: var(--color-text-primary);
   line-height: 1.5;
@@ -219,52 +215,60 @@ select {
 
 .text-secondary {
   margin: 0;
-  font-size: 0.875rem;
+  font-size: 0.8125rem;
+  line-height: 1.5;
   color: var(--color-text-secondary);
 }
 
 .text-caption {
   margin: 0;
-  font-size: 0.75rem;
+  font-size: 0.71875rem;
+  line-height: 1.4;
   color: var(--color-text-muted);
 }
 
 .text-label {
   margin: 0;
-  font-size: 0.75rem;
-  font-weight: 500;
-  color: var(--color-text-secondary);
+  font-size: 0.6875rem;
+  font-weight: 600;
+  color: var(--color-text-muted);
   text-transform: uppercase;
-  letter-spacing: 0.03em;
+  letter-spacing: 0.05em;
+  line-height: 1.3;
 }
 
 .text-metric {
   margin: 0;
-  font-size: 1.75rem;
+  font-size: 1.5rem;
   font-weight: 700;
-  letter-spacing: -0.01em;
+  letter-spacing: -0.02em;
   color: var(--color-text-primary);
   font-variant-numeric: tabular-nums;
+  line-height: 1.1;
 }
 
 .text-hero-metric {
   margin: 0;
-  font-size: 2.25rem;
+  font-size: 1.875rem;
   font-weight: 700;
-  letter-spacing: -0.015em;
+  letter-spacing: -0.02em;
   color: var(--color-text-primary);
   font-variant-numeric: tabular-nums;
+  line-height: 1;
 }
 
 @media (max-width: 640px) {
   .text-hero-metric {
-    font-size: 1.875rem;
+    font-size: 1.5rem;
+  }
+  .text-page-title {
+    font-size: 1.25rem;
   }
 }
 
 .text-delta {
   margin: 0;
-  font-size: 0.8125rem;
+  font-size: 0.75rem;
   font-weight: 600;
   font-variant-numeric: tabular-nums;
 }
@@ -278,5 +282,26 @@ select {
 }
 
 .text-delta--flat {
+  color: var(--color-text-muted);
+}
+
+/* Enterprise utilities */
+.enterprise-divider {
+  height: 1px;
+  background: var(--border-subtle);
+  border: none;
+  margin: 0;
+}
+
+.enterprise-kbd {
+  display: inline-flex;
+  align-items: center;
+  padding: 1px 6px;
+  border: 1px solid var(--border-default);
+  border-bottom-width: 2px;
+  border-radius: 4px;
+  font-size: 0.6875rem;
+  font-weight: 600;
+  background: var(--color-surface-elevated);
   color: var(--color-text-muted);
 }

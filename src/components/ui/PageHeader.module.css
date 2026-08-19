@@ -2,21 +2,30 @@
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
-  gap: var(--space-4);
+  gap: 16px;
   flex-wrap: wrap;
-  margin-bottom: var(--space-5);
+  margin-bottom: 16px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--border-subtle);
 }
 
 .text {
   display: flex;
   flex-direction: column;
-  gap: var(--space-1);
+  gap: 4px;
   min-width: 0;
 }
 
 .actions {
   display: flex;
   align-items: center;
-  gap: var(--space-3);
+  gap: 8px;
   flex-wrap: wrap;
+}
+
+@media (max-width: 640px) {
+  .header {
+    gap: 12px;
+    margin-bottom: 12px;
+  }
 }

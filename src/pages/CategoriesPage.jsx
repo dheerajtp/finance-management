@@ -1,5 +1,7 @@
+import { useState, useMemo } from 'react'
 import Button from '../components/ui/Button'
 import Icon from '../components/ui/Icon'
+import Input from '../components/ui/Input'
 import PageHeader from '../components/ui/PageHeader'
 import Select from '../components/ui/Select'
 import Skeleton from '../components/ui/Skeleton'
@@ -51,32 +53,51 @@ const CategoriesPage = () => {
     togglingActive,
   } = useActionCategory()
 
+  const [search, setSearch] = useState('')
+
+  const filteredCategories = useMemo(() => {
+    if (!search.trim()) return categories
+    const q = search.trim().toLowerCase()
+    return categories.filter((c) => c.name.toLowerCase().includes(q))
+  }, [categories, search])
+
   const groups = [
-    { key: 'income', title: 'Income', items: categories.filter((category) => category.type === 'income') },
+    { key: 'income', title: 'Income', items: filteredCategories.filter((category) => category.type === 'income') },
     {
       key: 'essential',
       title: 'Essential',
-      items: categories.filter((category) => category.type === 'expense' && category.is_essential),
+      items: filteredCategories.filter((category) => category.type === 'expense' && category.is_essential),
     },
     {
       key: 'discretionary',
       title: 'Discretionary',
-      items: categories.filter((category) => category.type === 'expense' && !category.is_essential),
+      items: filteredCategories.filter((category) => category.type === 'expense' && !category.is_essential),
     },
   ].filter((group) => group.items.length > 0)
 
   return (
-    <div>
+    <div className={styles.page}>
       <PageHeader
         title="Categories"
-        description="Classify your income and spending."
-        actions={<Button onClick={openCreateForm}>
+        description="Organize your income and spending."
+        actions={
+          <Button onClick={openCreateForm}>
             <Icon name="plus" size="var(--icon-sm)" />
             Add Category
-          </Button>}
+          </Button>
+        }
       />
 
-      <div className={styles.filters}>
+      <div className={styles.filterBar}>
+        <div className={styles.searchWrap}>
+          <Input
+            id="category-search"
+            placeholder="Search categories..."
+            value={search}
+            onChange={(e) => setSearch(e.target.value)}
+            prefix={<Icon name="search" size="var(--icon-sm)" />}
+          />
+        </div>
         <Select
           id="category-type-filter"
           label="Type"
@@ -94,11 +115,13 @@ const CategoriesPage = () => {
       </div>
 
       {isLoading && (
-        <div className={styles.list}>
-          <Skeleton height="3rem" radius="var(--radius-lg)" />
-          <Skeleton height="3rem" radius="var(--radius-lg)" />
-          <Skeleton height="3rem" radius="var(--radius-lg)" />
-          <Skeleton height="3rem" radius="var(--radius-lg)" />
+        <div className={styles.grid}>
+          <Skeleton height="96px" radius="var(--radius-lg)" />
+          <Skeleton height="96px" radius="var(--radius-lg)" />
+          <Skeleton height="96px" radius="var(--radius-lg)" />
+          <Skeleton height="96px" radius="var(--radius-lg)" />
+          <Skeleton height="96px" radius="var(--radius-lg)" />
+          <Skeleton height="96px" radius="var(--radius-lg)" />
         </div>
       )}
 
@@ -109,10 +132,20 @@ const CategoriesPage = () => {
           icon="tag"
           title="No categories yet"
           description="Create categories to organize your income and spending."
-          action={<Button onClick={openCreateForm}>
-            <Icon name="plus" size="var(--icon-sm)" />
-            Add Category
-          </Button>}
+          action={
+            <Button onClick={openCreateForm}>
+              <Icon name="plus" size="var(--icon-sm)" />
+              Add Category
+            </Button>
+          }
+        />
+      )}
+
+      {!isLoading && !isError && filteredCategories.length === 0 && categories.length > 0 && (
+        <EmptyState
+          icon="search"
+          title="No matching categories"
+          description={`No categories match "${search}". Try a different search or filter.`}
         />
       )}
 
@@ -120,8 +153,11 @@ const CategoriesPage = () => {
         !isError &&
         groups.map((group) => (
           <section key={group.key} className={styles.section}>
-            <p className={`text-label ${styles.sectionTitle}`}>{group.title}</p>
-            <div className={styles.list}>
+            <div className={styles.sectionHeader}>
+              <h2 className={styles.sectionTitle}>{group.title}</h2>
+              <span className={styles.sectionCount}>{group.items.length}</span>
+            </div>
+            <div className={styles.grid}>
               {group.items.map((category) => (
                 <CategoryCard
                   key={category.id}

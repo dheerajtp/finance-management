@@ -3,6 +3,7 @@ import Progress from '../ui/Progress'
 import EmptyState from '../ui/EmptyState'
 import Button from '../ui/Button'
 import Icon from '../ui/Icon'
+import DonutChart from '../ui/DonutChart'
 import { formatCurrency } from '../../utils/finance/currency'
 import styles from './TopSpendingCategories.module.css'
 
@@ -47,19 +48,33 @@ const TopSpendingCategories = ({ categories, currency, hasEverHadTransactions, p
           className={styles.empty}
         />
       ) : (
-        <div className={styles.list}>
-          {categories.map((category, index) => (
-            <div key={category.categoryId} className={styles.row}>
-              <span className={styles.rank}>{index + 1}</span>
-              <div className={styles.progressWrap}>
-                <Progress
-                  label={category.name}
-                  value={formatCurrency(category.amount, currency)}
-                  percentage={category.percentage}
-                />
+        <div className={styles.chartLayout}>
+          <div className={styles.donutWrap}>
+            <DonutChart
+              size={120}
+              strokeWidth={14}
+              segments={categories.map((c, i) => ({
+                value: c.amount,
+                color: ['var(--color-warning)', 'var(--color-accent)', 'var(--color-success)', 'var(--color-purple)', 'var(--color-info)'][i % 5],
+              }))}
+              centerLabel={`${categories.length}`}
+              centerSublabel="categories"
+            />
+          </div>
+          <div className={styles.list}>
+            {categories.map((category, index) => (
+              <div key={category.categoryId} className={styles.row}>
+                <span className={styles.rank}>{index + 1}</span>
+                <div className={styles.progressWrap}>
+                  <Progress
+                    label={category.name}
+                    value={formatCurrency(category.amount, currency)}
+                    percentage={category.percentage}
+                  />
+                </div>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
       )}
     </section>

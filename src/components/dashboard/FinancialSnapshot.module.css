@@ -1,20 +1,27 @@
 .wrap {
   display: flex;
   flex-wrap: wrap;
-  align-items: stretch;
-  gap: var(--space-6);
-  padding: var(--space-5) 0;
-  border-bottom: 1px solid var(--border-subtle);
+  align-items: center;
+  gap: 16px;
+  padding: 16px;
+  background: var(--color-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: 10px;
 }
 
 .hero {
   flex-shrink: 0;
-  padding-right: var(--space-6);
+  padding-right: 16px;
   border-right: 1px solid var(--border-subtle);
+  min-width: 180px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .heroValue {
-  margin-top: var(--space-2);
+  margin-top: 8px;
+  font-size: 1.625rem !important;
 }
 
 .metrics {
@@ -23,24 +30,50 @@
   display: flex;
   flex-wrap: wrap;
   align-items: flex-start;
-  gap: var(--space-6);
+  gap: 16px;
 }
 
 .metric {
   min-width: 7rem;
+  flex: 1 1 7rem;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  position: relative;
+  padding-top: 6px;
 }
 
 .metric p {
   margin: 0;
 }
 
-.metric .text-metric,
-.metric p:nth-child(2) {
-  margin-top: var(--space-1);
+.metricAccent {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 16px;
+  height: 2px;
+  border-radius: 999px;
 }
 
-.metric p:last-child {
-  margin-top: var(--space-1);
+.accentIncome {
+  background: var(--color-success);
+}
+
+.accentExpenses {
+  background: var(--color-danger);
+}
+
+.accentSavings {
+  background: var(--color-accent);
+}
+
+.accentRate {
+  background: var(--color-text-muted);
+}
+
+.accentInvested {
+  background: var(--color-purple);
 }
 
 .up {
@@ -56,14 +89,14 @@
     padding-right: 0;
     border-right: none;
     border-bottom: 1px solid var(--border-subtle);
-    padding-bottom: var(--space-5);
+    padding-bottom: 16px;
     width: 100%;
   }
 }
 
 @media (max-width: 480px) {
   .metrics {
-    gap: var(--space-5);
+    gap: 16px;
   }
 
   .metric {

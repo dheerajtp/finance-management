@@ -1,7 +1,7 @@
 import { NavLink } from 'react-router-dom'
 import { useAtom } from 'jotai'
 import useActionAuth from '../../hooks/functionality/useActionAuth'
-import { sidebarOpenAtom } from '../../store/ui.store'
+import { sidebarOpenAtom, sidebarCollapsedAtom } from '../../store/ui.store'
 import Icon from '../ui/Icon'
 import Badge from '../ui/Badge'
 import styles from './Sidebar.module.css'
@@ -46,6 +46,7 @@ const NAV_GROUPS = [
 
 const Sidebar = () => {
   const [isOpen, setIsOpen] = useAtom(sidebarOpenAtom)
+  const [isCollapsed] = useAtom(sidebarCollapsedAtom)
   const { currentUser } = useActionAuth()
 
   const navLinkClass = ({ isActive }) => `${styles.link} ${isActive ? styles.linkActive : ''}`
@@ -54,12 +55,12 @@ const Sidebar = () => {
   return (
     <>
       {isOpen && <div className={styles.backdrop} onClick={close} />}
-      <aside className={`${styles.sidebar} ${isOpen ? styles.sidebarOpen : ''}`}>
+      <aside className={`${styles.sidebar} ${isOpen ? styles.sidebarOpen : ''} ${isCollapsed ? styles.sidebarCollapsed : ''}`}>
         <div className={styles.brand}>
           <span className={styles.brandMark} aria-hidden="true">
             <Icon name="compass" size="var(--icon-sm)" />
           </span>
-          Financial Freedom OS
+          <span className={styles.brandText}>Financial Freedom OS</span>
         </div>
 
         <nav className={styles.nav}>

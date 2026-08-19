@@ -1,0 +1,34 @@
+.wrap {
+  position: relative;
+  flex-shrink: 0;
+  display: inline-flex;
+}
+
+.segment {
+  transition: stroke-dashoffset var(--transition-base);
+}
+
+.center {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  pointer-events: none;
+}
+
+.centerLabel {
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: var(--color-text-primary);
+  line-height: 1.1;
+  font-variant-numeric: tabular-nums;
+}
+
+.centerSublabel {
+  font-size: 0.6875rem;
+  color: var(--color-text-muted);
+  line-height: 1.2;
+}

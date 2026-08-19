@@ -1,4 +1,5 @@
 import Button from '../components/ui/Button'
+import Card from '../components/ui/Card'
 import Icon from '../components/ui/Icon'
 import PageHeader from '../components/ui/PageHeader'
 import Skeleton from '../components/ui/Skeleton'
@@ -94,7 +95,7 @@ const InvestmentsPage = () => {
     .slice(0, 10)
 
   return (
-    <div>
+    <div className={styles.page}>
       <PageHeader
         title="Investments"
         description="What you've invested, what it's worth, and what's due next — never combined across currencies."
@@ -108,9 +109,10 @@ const InvestmentsPage = () => {
 
       {isLoading && (
         <div className={styles.grid}>
-          <Skeleton height="8rem" radius="var(--radius-lg)" />
-          <Skeleton height="8rem" radius="var(--radius-lg)" />
-          <Skeleton height="8rem" radius="var(--radius-lg)" />
+          <Skeleton height="96px" radius="var(--radius-lg)" />
+          <Skeleton height="96px" radius="var(--radius-lg)" />
+          <Skeleton height="96px" radius="var(--radius-lg)" />
+          <Skeleton height="96px" radius="var(--radius-lg)" />
         </div>
       )}
 
@@ -143,10 +145,15 @@ const InvestmentsPage = () => {
           </div>
 
           <div className={styles.columns}>
-            <section className={styles.section}>
-              <h2 className="text-section-title">Active SIPs</h2>
+            <Card className={styles.columnCard}>
+              <div className={styles.sectionHeader}>
+                <h2 className="text-section-title">Active SIPs</h2>
+                <span className={styles.countBadge}>{activePlans.length}</span>
+              </div>
               {activePlans.length === 0 ? (
-                <EmptyState icon="calendarCheck" title="No active SIPs" description="Set up a recurring contribution from any investment's Manage SIP screen." />
+                <div className={styles.emptyCompact}>
+                  <EmptyState icon="calendarCheck" title="No active SIPs" description="Set up a recurring contribution from any investment's Manage SIP screen." />
+                </div>
               ) : (
                 <div className={styles.planList}>
                   {activePlans.map((plan) => (
@@ -163,21 +170,24 @@ const InvestmentsPage = () => {
                   ))}
                 </div>
               )}
-            </section>
+            </Card>
 
-            <section className={styles.section}>
-              <UpcomingInvestmentContributions plans={upcomingPlans} />
-            </section>
+            <UpcomingInvestmentContributions plans={upcomingPlans} />
           </div>
 
-          <section className={styles.section}>
-            <h2 className="text-section-title">Recent Contributions</h2>
+          <Card>
+            <div className={styles.sectionHeader}>
+              <h2 className="text-section-title">Recent Contributions</h2>
+              <span className={styles.countBadge}>{recentContributions.length}</span>
+            </div>
             {!contributionsLoading && recentContributions.length === 0 ? (
-              <EmptyState icon="chartCandlestick" title="Nothing recorded yet" description="Contributions you record or skip from a SIP will show up here." />
+              <div className={styles.emptyCompact}>
+                <EmptyState icon="chartCandlestick" title="Nothing recorded yet" description="Contributions you record or skip from a SIP will show up here." />
+              </div>
             ) : (
               <InvestmentContributionList contributions={recentContributions} onEdit={openEditContribution} onDelete={requestDelete} />
             )}
-          </section>
+          </Card>
         </>
       )}
 

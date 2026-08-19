@@ -1,38 +1,47 @@
 .card {
   background: var(--color-surface);
-  border: 1px solid var(--border-default);
-  border-radius: var(--radius-lg);
-  padding: var(--space-5);
+  border: 1px solid var(--border-subtle);
+  border-radius: 10px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
 }
 
 .elevated {
   background: var(--color-surface-elevated);
-  box-shadow: var(--shadow-md);
+  border-color: var(--border-subtle);
+  box-shadow: var(--shadow-sm);
 }
 
 .interactive {
   cursor: pointer;
-  transition: border-color var(--transition-fast), transform var(--transition-fast),
-    background-color var(--transition-fast);
+  transition: border-color var(--transition-fast), background-color var(--transition-fast), box-shadow var(--transition-fast);
 }
 
 .interactive:hover {
-  border-color: var(--border-strong);
-  background: var(--color-surface-interactive);
+  border-color: var(--border-default);
+  background: var(--color-surface-elevated);
+  box-shadow: var(--shadow-sm);
 }
 
 .interactive:active {
-  transform: translateY(1px);
+  transform: translateY(0.5px);
 }
 
 .hero {
   background: var(--color-surface-elevated);
-  border-color: transparent;
-  padding: var(--space-6);
-  box-shadow: var(--shadow-md);
+  border-color: var(--border-subtle);
+  padding: 20px;
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
 }
 
 .flat {
   background: transparent;
   border-color: transparent;
+  padding: 0;
+  height: auto;
 }

@@ -1,4 +1,4 @@
-import { useNavigate } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import Card from '../ui/Card'
 import EmptyState from '../ui/EmptyState'
 import Button from '../ui/Button'
@@ -6,6 +6,7 @@ import Icon from '../ui/Icon'
 import Skeleton from '../ui/Skeleton'
 import { summarizeAccounts } from '../../utils/finance/accountSummary'
 import { formatCurrency } from '../../utils/finance/currency'
+import Sparkline from '../ui/Sparkline'
 import styles from './NetPosition.module.css'
 
 // The hero "how am I doing overall" panel — assets minus liabilities, i.e.
@@ -19,7 +20,7 @@ import styles from './NetPosition.module.css'
 // /net-worth, where the user is reviewing accounts in depth), it shows only
 // the profile-currency group plus a "+N other currencies" note — never
 // combining them, just not spending dashboard space on every one.
-const NetPosition = ({ accounts, loading, compact = false, primaryCurrency }) => {
+const NetPosition = ({ accounts, loading, compact = false, primaryCurrency, activeCount, showDashboardLinks = false }) => {
   const navigate = useNavigate()
 
   if (loading) {
@@ -60,11 +61,16 @@ const NetPosition = ({ accounts, loading, compact = false, primaryCurrency }) =>
     <div className={styles.stack}>
       {visibleGroups.map((group) => (
         <Card key={group.currency} variant="hero" className={styles.card}>
-          <p className="text-label">Net Worth{groups.length > 1 && !compact ? ` — ${group.currency}` : ''}</p>
-          <p className={`text-hero-metric ${styles.value}`}>{formatCurrency(group.netPosition, group.currency)}</p>
-          <span className={`text-delta ${group.netPosition >= 0 ? 'text-delta--up' : 'text-delta--down'}`}>
-            {group.netPosition >= 0 ? 'Positive' : 'Negative'}
-          </span>
+          <div className={styles.headerRow}>
+            <div className={styles.headerText}>
+              <p className="text-label">Net Worth{groups.length > 1 && !compact ? ` — ${group.currency}` : ''}</p>
+              <p className={`text-hero-metric ${styles.value}`}>{formatCurrency(group.netPosition, group.currency)}</p>
+              <span className={`text-delta ${group.netPosition >= 0 ? 'text-delta--up' : 'text-delta--down'}`}>
+                {group.netPosition >= 0 ? 'Positive' : 'Negative'}
+              </span>
+            </div>
+            {compact && <Sparkline data={[]} width={120} height={48} />}
+          </div>
 
           <div className={styles.split}>
             <div>
@@ -76,10 +82,32 @@ const NetPosition = ({ accounts, loading, compact = false, primaryCurrency }) =>
               <p className="text-card-title">{formatCurrency(group.totalLiabilities, group.currency)}</p>
             </div>
           </div>
+
+          {compact && showDashboardLinks && typeof activeCount === 'number' && (
+            <>
+              <p className={`text-caption ${styles.count}`}>{activeCount} active account{activeCount === 1 ? '' : 's'}</p>
+              <div className={styles.links}>
+                <Link to="/accounts" className={styles.viewAll}>
+                  View all accounts
+                  <Icon name="chevronRight" size="var(--icon-xs)" />
+                </Link>
+                <Link to="/net-worth" className={styles.viewAll}>
+                  View net worth
+                  <Icon name="chevronRight" size="var(--icon-xs)" />
+                </Link>
+              </div>
+            </>
+          )}
+
+          {compact && otherGroupCount > 0 && (
+            <p className={`text-caption ${styles.otherCurrencies}`} style={{ marginTop: '8px' }}>
+              + {otherGroupCount} other currenc{otherGroupCount === 1 ? 'y' : 'ies'} (not combined)
+            </p>
+          )}
         </Card>
       ))}
 
-      {compact && otherGroupCount > 0 && (
+      {!compact && otherGroupCount > 0 && (
         <p className={`text-caption ${styles.otherCurrencies}`}>
           + {otherGroupCount} other currenc{otherGroupCount === 1 ? 'y' : 'ies'} (not combined)
         </p>

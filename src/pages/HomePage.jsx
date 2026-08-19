@@ -77,11 +77,11 @@ const HomePage = () => {
 
   if (isLoading) {
     return (
-      <div>
+      <div className={styles.dashboard}>
         <PageHeader title={welcome} />
         <Skeleton height="6rem" radius="var(--radius-lg)" />
         {Array.from({ length: 4 }).map((_, index) => (
-          <div key={index} className={`${styles.section} ${styles.row}`}>
+          <div key={index} className={styles.row}>
             <Skeleton height="12rem" radius="var(--radius-lg)" />
             <Skeleton height="12rem" radius="var(--radius-lg)" />
           </div>
@@ -96,7 +96,7 @@ const HomePage = () => {
 
   if (isBrandNew) {
     return (
-      <div>
+      <div className={styles.dashboard}>
         <PageHeader title={welcome} description="Let's set up your financial picture." />
 
         <QuickStartCards
@@ -109,8 +109,9 @@ const HomePage = () => {
   }
 
   return (
-    <div>
+    <div className={styles.dashboard}>
       <PageHeader
+        className={styles.pageHeader}
         title={welcome}
         description="Here's how your finances are looking this month."
         actions={
@@ -160,7 +161,7 @@ const HomePage = () => {
         />
       </div>
 
-      <div className={`${styles.section} ${styles.rowWide}`}>
+      <div className={`${styles.rowWide} ${styles.rowEqual}`}>
         <FinancialHealth
           isLoading={financialHealth.isLoading}
           isError={financialHealth.isError}
@@ -183,18 +184,21 @@ const HomePage = () => {
         />
       </div>
 
-      <div className={`${styles.section} ${styles.rowWide}`}>
-        <div className={styles.spendingStack}>
+      <div className={`${styles.rowWide} ${styles.rowEqual}`}>
+        <div className={styles.card}>
           <SpendingBreakdown breakdown={breakdown} currency={currency} />
-          <TopSpendingCategories
-            categories={topCategories}
-            currency={currency}
-            hasEverHadTransactions={hasEverHadTransactions}
-            periodLabel={periodLabel}
-            onAddTransaction={goToTransactions}
-          />
         </div>
         <UpcomingCommitments upcoming={commitments.upcoming} dueOrOverdue={commitments.dueOrOverdue} />
+      </div>
+
+      <div className={styles.card}>
+        <TopSpendingCategories
+          categories={topCategories}
+          currency={currency}
+          hasEverHadTransactions={hasEverHadTransactions}
+          periodLabel={periodLabel}
+          onAddTransaction={goToTransactions}
+        />
       </div>
 
       <div className={styles.section}>
@@ -203,12 +207,9 @@ const HomePage = () => {
         </Section>
       </div>
 
-      <div className={`${styles.section} ${styles.rowNarrow}`}>
+      <div className={`${styles.rowThree} ${styles.rowEqual}`}>
         <AccountPosition accounts={accounts} primaryCurrency={currency} />
         <SavingsTarget savingsTarget={savingsTarget} currency={currency} />
-      </div>
-
-      <div className={styles.section}>
         <RecentTransactions
           transactions={recentTransactions}
           accountsById={accountsById}
