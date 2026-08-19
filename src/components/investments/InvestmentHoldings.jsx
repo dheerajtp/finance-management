@@ -36,10 +36,6 @@ const InvestmentHoldings = ({
   <section>
     <div className={styles.head}>
       <h2 className="text-section-title">Investment Holdings</h2>
-      <Button onClick={onAddHolding}>
-        <Icon name="plus" size="var(--icon-sm)" />
-        Add Investment
-      </Button>
     </div>
 
     {hasAnyHoldings && (
