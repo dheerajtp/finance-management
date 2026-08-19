@@ -54,7 +54,7 @@ const SubscriptionsPage = () => {
   const currencyFilterOptions = [{ value: 'all', label: 'All currencies' }, ...currencyOptions]
 
   return (
-    <div>
+    <div className={styles.page}>
       <PageHeader
         title="Subscriptions"
         description="Recurring commitments — what renews, when, and what it costs."
